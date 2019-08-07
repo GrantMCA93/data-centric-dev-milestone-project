@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Website Statistics</h2>
+<p style="text-align:center">This page is not designed for mobile browsers.</p>
+<section>
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-xs-6 pl-5">
+        <h3>Recipes Per Category</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="pl-5">Category</th>
+                <th scope="col" class="text-center">Number of Recipes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for key, value in cat_data.items() %}
+              <tr>
+                <td class="pl-5">{{key}}</td>
+                <td class="text-center">{{value}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-6 pl-5">
+        <h3>Recipes per Cuisine</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="pl-5">Cuisine</th>
+                <th scope="col" class="text-center">Number of Recipes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for key, value in cuis_data.items() %}
+              <tr>
+                <td class="pl-5">{{key}}</td>
+                <td class="text-center">{{value}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-6 pl-5">
+        <h3>Recipes Per Allergen</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="pl-5">Allergen</th>
+                <th scope="col" class="text-center">Number of Recipes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for key, value in aller_data.items() %}
+              <tr>
+                <td class="pl-5">{{key}}</td>
+                <td class="text-center">{{value}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-5">
+      <div class="col-xs-6 pl-5">
+        <h3>Category incidence across all recipes</h3>
+        <img src="static/img/graphs/piechart-category.svg">
+      </div>
+      <div class="col-xs-6 pl-5">
+        <h3>Cuisine incidence across all recipes</h3>
+        <img src="static/img/graphs/piechart-cuisine.svg">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-xs-6 pl-5 text-center">
+        <h3>Allergen incidence across all recipes</h3>
+        <img src="static/img/graphs/piechart-allergens.svg">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-xs-6 pl-5">
+        <h3>Top 10 Categores</h3>
+        <img src="static/img/graphs/barchart-category.svg">
+      </div>
+      <div class="col-xs-6 pl-5">
+        <h3>Top 10 Cuisines used across all recipes</h3>
+        <img src="static/img/graphs/barchart-cuisine.svg">
+      </div>
+      <div class="col-xs-6 pl-5">
+        <h3>Top 10 Allergens</h3>
+        <img src="static/img/graphs/barchart-allergens.svg">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

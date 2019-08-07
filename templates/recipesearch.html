@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="row">
+
+    <h2>Recipe Search</h2>
+    <h3 class="section-subheading text-muted">Search and filter recipes. Please Search Recipe by Name, category, cuisine or allergen</h3>
+    <!--RECIPE NAME SEARCH-->
+    <div class="row">
+        <div class="col-xs-12">
+            <form id="recipe_nameFilter" name="recipe_nameFilter" method="POST">
+                <label for="searchrecipe_name">Search by Recipe Name</label>
+                <div class="input-group mb-3">
+                    <input type="input" class="form-control" id="searchrecipe_name" name="searchrecipe_name" placeholder="Enter recipe name" aria-label="Search by recipe name" aria-describedby="recipe_nameFilterButton" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="recipe_nameFilterButton" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <!--RECIPE NAME FILTER-->
+        <div class="col-lg-12 col-md-12">
+            <div class="row">
+                <label class="marginrightleft10px" for="searchrecipe_name" >Search by Recipe Name</label>
+                <form id="recipe_nameFilter" name="recipe_nameFilter" method="POST">
+                    <select class="custom-select marginrightleft10px" id="recipe_nameFilter" name="recipe_nameFilter" >
+                                <option >Select a Recipe Name</option>
+                                  {% for cat in recipes %}
+                                  <option value="{{cat.recipe_name}}">{{cat.recipe_name}}</option>
+                                    {% endfor %}
+                            </select>
+                </form>
+            </div>
+        </div>
+        <!--CATEGORY FILTER-->
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <label class="marginrightleft10px" for="selectCategory">Search by Category</label>
+                <form id="categoryFilter" name="categoryFilter" method="POST">
+                    <select class="custom-select marginrightleft10px" id="category-select">
+                                <option >Select a Category</option>
+                                  {% for cat in recipe_category %}
+                                  <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+                                    {% endfor %}
+                            </select>
+                </form>
+            </div>
+        </div>
+        <!--CUISINE FILTER-->
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <label class="marginrightleft10px" for="selectCuisine">Search by Cuisine</label>
+                <form id="cuisineFilter" name="cuisineFilter" method="POST">
+                    <select class="custom-select marginrightleft10px" id="cuisine-select">
+                                <option >Select a Cuisine</option>
+                                  {% for cuis in cuisine %}
+                                  <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                                    {% endfor %}
+                            </select>
+                </form>
+            </div>
+        </div>
+        <!--ALLERGENS FILTER-->
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <label class="marginrightleft10px" for="selectAllergens">Search by Allergens</label>
+                <form id="allergensFilter" name="allergensFilter" method="POST">
+                    <select class="custom-select marginrightleft10px" id="allergens-select">
+                                <option >Select a Allergens</option>
+                                  {% for aller in allergens %}
+                                  <option value="{{aller.allergens}}">{{aller.allergens}}</option>
+                                    {% endfor %}
+                            </select>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row results-col-xs">
+    <!--Recipe Search Results -->
+    <div class="row" id="searchResult">
+        <div class="col-xs-12">
+            <div>
+                <p id="recipeResult">
+                </p>
+            </div>
+        </div>
+    </div>
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for recipe in recipes %}
+        <div class="custommargin initialRecipes">
+            <li>
+                <div class="contentbox col-xs-12 col-md-6 col-lg-4">
+                    <h4 style="text-align: center; font-size: 17px;"><strong>{{recipe.recipe_name}} </strong></h4>
+                    <div class="collapsible-header equalizecontentboxheights">
+                        <div class="row">
+                            <div class="imageposition">
+                                <img src="{{recipe.images}}" onerror="if (this.src != '/static/img/recipes/errorimage.jpg') this.src = '/static/img/recipes/errorimage.jpg';" style="width: 100%;height: 280px;">
+                            </div>
+                            <ul class="col-xs-12 recipeinfo" style="height: 220px;    display: table; table-layout: fixed; width: 100%;border: 1px solid #c2c2c2; -moz-box-sizing: border-box;box-sizing: border-box;">
+                                <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.category}}">
+                                    Category - <strong> {{recipe.recipe_category}} </strong>
+                                </span></li>
+                                <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.cuisine}}">
+                                    Cuisine - <strong> {{recipe.cuisine}} </strong>
+                                </span></li>
+                                <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.allergens}}">
+                                    Allergens - <strong>{% if recipe.allergens|length > 0 %}
+                                                {% for allergens in recipe.allergens %}
+                                                {{ allergens }}
+                                                {% endfor %}
+                                            {% else %}
+                                                No Allergens
+                                            {% endif %}</strong>
+                                </span></li>
+                                <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;">
+                                    Description - <strong> {{recipe.description}}</strong>
+                                </span></li>
+                                <li style="display: table-row;"><span class="col-xs-12" style="display: table-cell; vertical-align: middle;">
+                                    <div class="card-footer col-xs-6" style="padding: 0px;margin: 0px;">
+                                        <div class="card-text"><small class="text-muted">Created:
+                                                {{recipe['dateCreated'].strftime('%d-%b-%Y')}}</small></div>
+                                        <div class="card-text"><small class="text-muted"><i class="far fa-heart"></i>
+                                                {{ recipe.votes }}</small></div>
+                                    </div>
+                                    <div class="waves-effect waves-light btn viewrecipebuttonmargin col-xs-6" style="margin: 0px;">
+                                        <div>
+                                            <a class="viewrecipebutton" href="{{ url_for('view_recipe', recipe_id=recipe._id)}}">View Recipe</a>
+                                        </div>
+                                    </div>
+                                </span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                    </div>
+            </li>
+            </div>
+            {% endfor %}
+    </ul>
+    </div>
+</div>
+{% endblock %}

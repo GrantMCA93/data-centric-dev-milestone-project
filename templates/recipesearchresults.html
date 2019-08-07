@@ -1,0 +1,59 @@
+<div>
+    <p>{{reciperesults|length}} recipes found</p>
+</div>
+{% for recipe_row in reciperesults | sort(attribute='votes', reverse = True) | batch(3) %}
+<div class="card-deck">
+    <div class="custommargin col-xs-12">
+        <h2>Results</h2>
+        {% for recipe in recipe_row %}
+
+        <div class="contentbox col-xs-12 col-md-6 col-lg-4">
+            <h4 style="text-align: center; font-size: 17px;"><strong>{{recipe.recipe_name}} </strong></h4>
+            <div class="collapsible-header equalizecontentboxheights">
+                <div class="row">
+                    <div class="imageposition">
+                        <img src="{{recipe.images}}" onerror="if (this.src != '/static/img/recipes/errorimage.jpg') this.src = '/static/img/recipes/errorimage.jpg';" style="width: 100%;height: 280px;">
+                    </div>
+                    <ul class="col-xs-12 recipeinfo" style="height: 220px;    display: table; table-layout: fixed; width: 100%;border: 1px solid #c2c2c2; -moz-box-sizing: border-box;box-sizing: border-box;">
+                        <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.category}}">
+                                    Category - <strong> {{recipe.recipe_category}} </strong>
+                                </span></li>
+                        <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.cuisine}}">
+                                    Cuisine - <strong> {{recipe.cuisine}} </strong>
+                                </span></li>
+                        <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.allergens}}">
+                                    Allergens - <strong>{% if recipe.allergens|length > 0 %}
+                                                {% for allergens in recipe.allergens %}
+                                                {{ allergens }}
+                                                {% endfor %}
+                                            {% else %}
+                                                No Allergens
+                                            {% endif %}</strong>
+                                </span></li>
+                        <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;">
+                                    Description - <strong> {{recipe.description}}</strong>
+                                </span></li>
+                        <li style="display: table-row;"><span class="col-xs-12" style="display: table-cell; vertical-align: middle;">
+                                    <div class="card-footer col-xs-6" style="padding: 0px;margin: 0px;">
+                                        <div class="card-text"><small class="text-muted">Created:
+                                                {{recipe['dateCreated'].strftime('%d-%b-%Y')}}</small></div>
+                                        <div class="card-text"><small class="text-muted"><i class="far fa-heart"></i>
+                                                {{ recipe.votes }}</small></div>
+                                    </div>
+                                    <div class="waves-effect waves-light btn viewrecipebuttonmargin col-xs-6" style="margin: 0px;">
+                                        <div>
+                                            <a class="viewrecipebutton" href="{{ url_for('view_recipe', recipe_id=recipe._id)}}">View Recipe</a>
+                                        </div>
+                                    </div>
+                                </span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="collapsible-body">
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+    {% endfor %}

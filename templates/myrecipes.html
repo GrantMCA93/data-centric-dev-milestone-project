@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<h1>My Recipes</h1>
+<section>
+    <div class="row">
+        <div class="custommargin">
+            <div class="contentbox col-xs-124">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>You have <span id="totalcount">{{total_count}}</span> recipes in your collection.</p>
+                    </div>
+                </div>
+                    {% if total_count == 0 %}
+                    <div class="row">
+                            <div class="col-xs-12"></div>
+                    </div>
+                    {%else%}
+                    <div class="row"></div>
+                    </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4 col-lg-3 ">Name</div>
+                    <div class="col-xs-2 d-none d-lg-block ">Description</div>
+                    <div class="col-xs-2 d-none d-lg-block center-text">Date Created and last modified</div>
+                    <div class="col-xs-2 col-lg-3  d-none d-lg-block center-text">Vote</div>
+                    <div class="col-xs-6 col-lg-2  col-md-2 col-lg-4 center-text">Manage Recipe</div>
+                </div>
+                    {%endif%}
+                {%  for recipe in recipes if recipes %}
+                <div class="row">
+                    <div class="col-xs-6 col-md-4 col-lg-3 ">
+                        <a href="/view_recipe/{{recipe._id}}">{{recipe.recipe_name}}</a>
+                    </div>
+                    <div class="col-xs-2 d-none d-lg-block pt-1 pb-1">
+                        {{ recipe.description|truncate(50, False, '...', 0) }}
+                    </div>
+                    <div class="col-xs-2 d-none d-lg-block text-center pt-3 center-text">Created: {{recipe.dateCreated.strftime('%d-%b-%Y')}}<br> Modified: {{recipe.dateModified.strftime('%d-%b-%Y')}}</div>
+                    <div class="col-xs-2 col-lg-3  d-none d-lg-block text-center pt-4 center-text">{{ recipe.votes }}</div>
+                    <div class="col-xs-6 col-md-2 col-lg-2">
+                        <div class="row  manage-recipe-buttons">
+                            <div class="t-align marginrightleft5px">
+                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-primary managebtn" type="button" id="editRecipeButton">Edit</a>
+                            </div>
+                <form class="marginrightleft5px" action="{{url_for('myrecipes_delete_recipe', recipe_id=recipe._id)}}" method="POST">
+                    <button type="submit" class="btn managebtn">Delete</button>
+                </form>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-xs-12 pt-5">You can add recipes to your collection by clicking <a href="{{url_for('add_recipes')}}" title="Add a recipe">here</a></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

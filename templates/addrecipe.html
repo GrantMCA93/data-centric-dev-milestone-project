@@ -1,0 +1,158 @@
+{% extends 'base.html' %} {% block content %}
+
+<h3>Add Recipe</h3>
+<div class="row">
+    <form action="{{url_for('insert_recipe') }}" method="POST" class="col s12">
+        <!-- Recipe Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" maxLength="42" placeholder="Character Limit 42" required>
+                <label for="icon_prefix">Recipe name</label>
+                <p class="limit">limit: 42 characters</p>
+            </div>
+        </div>
+        <!-- Recipe Category -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <select id="recipe_category" name="recipe_category" required>
+                      <option selected disabled value="">Choose Recipe Category (required field)</option>
+                      {% for cat in recipe_category %}
+                      <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+                        {% endfor %}
+                </select>
+                <label>Recipe Category</label>
+            </div>
+        </div>
+        <!-- Recipe Cuisine -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <select id="cuisine" name="cuisine" required>
+                      <option selected disabled value="">Choose Recipe Cuisine (required field)</option>
+                      {% for cuis in cuisine %}
+                      <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                        {% endfor %}
+                </select>
+                <label>Recipe Cuisine</label>
+            </div>
+        </div>
+        <!-- Recipe Allergens -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <select id="allergens" name="allergens" multiple>
+                      <option selected disabled value="">Choose Recipe Allergens (not required)</option>
+                      {% for aller in allergens %}
+                      <option value="{{aller.allergens}}">{{aller.allergens}}</option>
+                        {% endfor %}
+                </select>
+                <label>Recipe Allergens</label>
+            </div>
+        </div>
+        <!-- Recipe Main Ingredient -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="main_ingredient" name="main_ingredient" type="text" class="validate" required>
+                <label for="icon_prefix">Main Ingredient</label>
+            </div>
+        </div>
+        <!-- Recipe Description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <input name="description" id="description" type="text" class="materialize-textarea" maxLength="160" placeholder="Character Limit 160" required>
+                <p class="limit">limit: 160 characters</p>
+                <label for="icon_telephone">Description</label>
+            </div>
+        </div>
+        <!-- Recipe URL source -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="recipe_url" name="recipe_url" type="text" class="validate" required>
+                <label for="icon_prefix">Recipe URL Source</label>
+            </div>
+        </div>
+        <!-- Recipe Difficulty -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <select id="difficulty" name="difficulty" required>
+      <option value="" disabled selected>Choose Recipe Difficulty (required field)</option>
+      {% for dif in difficulty %}
+      <option value="{{dif.difficulty}}">{{dif.difficulty}}</option>
+        {% endfor %}
+    </select>
+                <label>Recipe Difficulty</label>
+            </div>
+        </div>
+        <!-- Number of People Recipe Serves -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="serves" name="serves" type="number" class="validate" required>
+                <label for="icon_prefix">Serves</label>
+            </div>
+        </div>
+        <!-- Recipe Preperation Time -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="prep_time" name="prep_time" type="text" class="validate" required>
+                <label for="icon_prefix">Prep Time</label>
+            </div>
+        </div>
+        <!-- Recipe Cooking Time -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="cook_time" name="cook_time" type="text" class="validate" required>
+                <label for="icon_prefix">Cook Time</label>
+            </div>
+        </div>
+        <!-- Recipe Image -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="images" name="images" type="text" class="validate" required>
+                <label for="icon_prefix">Image url</label>
+            </div>
+        </div>
+        <!-- Recipe Ingredients -->
+        <div class="form-group">
+            <div id="ingredients_input_list">
+                <i class="material-icons prefix">subject</i>
+                <label for="inputIngredients">Ingredients</label>
+                <input type="text" class="input form-control" id="ingredient1" name="ingredient" placeholder="Ingredient 1 Recipe Requires two ingredients." required />
+                <input type="text" class="input form-control" id="ingredient2" name="ingredient" placeholder="Ingredient 2 Required" required />
+                <input type="text" class="input form-control" id="ingredient3" name="ingredient" placeholder="Ingredient 3" />
+                <input type="text" class="input form-control" id="ingredient4" name="ingredient" placeholder="Ingredient 4" />
+                <input type="text" class="input form-control" id="ingredient5" name="ingredient" placeholder="Ingredient 5" />
+                <a href="#" id="add_ingredient" title="Add another ingredient"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</a>
+            </div>
+        </div>
+        <!-- Recipe Instructions -->
+        <div class="row">
+            <div class="input-field col s12" id="instruction_input_list">
+                <i class="material-icons prefix">subject</i>
+                <label for="icon_telephone">Instructions</label>
+                <textarea class="input form-control" id="instruction" name="instruction" placeholder="Instruction 1 Recipe Requires atleast one instruction." style="min-height:100px" required></textarea>
+                <textarea class="input form-control" id="instruction1" name="instruction" placeholder="Instruction 2" style="min-height:100px"></textarea>
+                <label for="icon_telephone">Instructions</label>
+                <a href="#" id="add_instruction" title="Add another instruction"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</a>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
+    <i class="material-icons right">playlist_add</i>
+  </button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

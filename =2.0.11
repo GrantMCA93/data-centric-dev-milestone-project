@@ -1,0 +1,2 @@
+Requirement already satisfied: django in /usr/local/lib/python2.7/dist-packages
+Requirement already satisfied: pytz in /usr/local/lib/python2.7/dist-packages (from django)

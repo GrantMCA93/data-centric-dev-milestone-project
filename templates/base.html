@@ -1,0 +1,259 @@
+<!DOCTYPE html
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="#">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"></head>
+
+<body>
+    <header>
+        <nav class="red.lighten-3 navbarfixed">
+            <div class="marginrightleft5px">
+                <div class="nav-wrapper red.lighten-3" id="navbarResponsive">
+                    <a href="{{url_for('get_recipes')}}" class="brand-logo">Cookbook</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> {% if session['isLoggedin'] %}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="desktopnavfont" href="{{url_for('get_recipes')}}">Home</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('recipesearch')}}">Recipe Search</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('add_recipes')}}">New Recipe</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('myrecipes')}}">My Recipes</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('websitestats')}}" title="Website Statistics">Website Stats</a></li>
+                        <li><a class="waves-effect waves-light btn" href="/logout" role="button" data-target=".bs-modal-sm">Sign out</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="waves-effect waves-light btn" href="/logout" role="button" title="logout" data-target=".bs-modal-sm">Sign Out</a></li>
+                        <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                        <li><a href="{{url_for('recipesearch')}}">Recipe Search</a></li>
+                        <li><a href="{{url_for('add_recipes')}}">New Recipe</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('myrecipes')}}">My Recipes</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('websitestats')}}" title="Website Statistics">Website Stats</a></li>
+                    </ul>
+                    {% else %}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="desktopnavfont" href="{{url_for('get_recipes')}}">Home</a></li>
+                        <li><a class="desktopnavfont" href="{{url_for('recipesearch')}}">Recipe Search</a></li>
+                        <li><a class="waves-effect waves-light btn" title="Login" href="/index.html" role="button" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a></li>
+
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="waves-effect waves-light btn" title="Login" href="/index.html" role="button" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a></li>
+                        <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                        <li><a href="{{url_for('recipesearch')}}">Recipe Search</a></li>
+
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- USER NAME-->
+    {% if session['isLoggedin'] and request.path != "/" %}
+    <div class="container-fluid" id="user_content">
+        <div class="row">
+            <div class="col-xs-12">
+                <section id="user-name-wrapper">
+                    <div class="userwelcome welcomemessage" style="margin-bottom: -10px;">
+                        <span> Welcome back {{ session['username'] }} </span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    {% elif session['isLoggedin'] and request.path == "/" %}
+    <div class="container-fluid" id="user_content">
+        <div class="row">
+            <div class="col-xs-12">
+                <section id="user-name-wrapper">
+                    <div class="userwelcome home-userwelcome">
+                        <span> Welcome back {{ session['username'] }} </span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container-fluid" id="user_content">
+        <div class="row">
+            <div class="col-xs-12">
+                <section id="user-name-wrapper-notloggedin">
+                </section>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="container" style="margin-top: 30px;">
+        <div class="modaledit modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <br>
+                    <div class="bs-example bs-example-tabs">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                            <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                            <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in" id="why">
+                                <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+                                <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
+                            </div>
+                            <div class="tab-pane fade active in" id="signin">
+                                <form class="form-horizontal" method="POST" action="/login_user" name="loginForm" id="loginForm">
+                                    <fieldset>
+                                        <!-- Sign In Form -->
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="loginUsername">Username:</label>
+                                            <div class="controls">
+                                                <input required="" id="loginUsername" name="loginUsername" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium">
+                                            </div>
+                                        </div>
+
+                                        <!-- Password input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="loginPassword">Password:</label>
+                                            <div class="controls">
+                                                <input required="" id="loginPassword" name="loginPassword" class="form-control" type="password" placeholder="********" class="input-medium">
+                                            </div>
+                                        </div>
+                                        <!-- Wrong Login Message -->
+                                        <div id="wrongusernameorpassword" class="form-group button-submit-margin">
+                                            {{loginmessage}}
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="control-group">
+                                            <label class="control-label" for="signin"></label>
+                                            <div class="controls">
+                                                <button id="signin" name="signin" type="submit" class="btn btn-success">Sign In</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="signup">
+                                <form method="POST" action="/signup_user" name="signupForm" id="signupForm" class="form-horizontal">
+                                    <fieldset>
+                                        <!-- Sign Up Form -->
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="Email">Enter a Email Address:</label>
+                                            <div class="controls">
+                                                <input id="Email" name="Email" class="form-control" type="email" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="signupUsername">Enter a Username:</label>
+                                            <div class="controls">
+                                                <input id="signupUsername" name="signupUsername" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="firstName">Enter your First Name:</label>
+                                            <div class="controls">
+                                                <input id="firstName" name="firstName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="lastName">Enter your Last Name :</label>
+                                            <div class="controls">
+                                                <input id="lastName" name="lastName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            </div>
+                                        </div>
+
+                                        <!-- Password input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="signupPassword">Enter a Password:</label>
+                                            <div class="controls">
+                                                <input id="signupPassword" name="signupPassword" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                                <em>1-8 Characters</em>
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="confirmPassword">Re-Enter Password:</label>
+                                            <div class="controls">
+                                                <input id="confirmPassword" class="form-control" name="confirmPassword" type="password" placeholder="********" class="input-large" required="">
+                                            </div>
+                                        </div>
+                                        <!-- Signup Message -->
+                                        <div class="form-group button-submit-margin" id="signupMessages">
+                                            {{message}}
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="control-group">
+                                            <label class="control-label" for="confirmsignup"></label>
+                                            <div class="controls">
+                                                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <center>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %} {% endblock %}
+    </div>
+        <!--- The footer social media links are sinple for display --->
+<footer class="footer footer-mobile">
+    <div class="col-sm-12">
+    <h3 class="uppercase general-sub" style="margin-top: 0px;">Social links</h3>
+      <ul class="list-inline social-links">
+          <li><a target="_blank" href="#"><i class="fa fa-facebook footer-icon-color"></i></a></li>
+          <li><a target="_blank" href="#"><i class="fa fa-twitter footer-icon-color"></i></a></li>
+          <li><a target="_blank" href="#"><i class="fa fa-linkedin footer-icon-color"></i></a></li>
+          <li><a target="_blank" href="#"><i class="fa fa-instagram footer-icon-color"></i></a></li>
+          <li><a target="_blank" href="#"><i class="fa fa-youtube footer-icon-color"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $(".button-collapse").sideNav();
+        });
+    </script>
+    <!-- cookbook costum script -->
+    <script src="{{url_for('static', filename='js/cookbookcustom_script.js')}}"></script>
+    <script src="{{url_for('static', filename='js/counter.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            'use strict';
+
+            // works on one field
+            $('input').countChar();
+        });
+    </script>
+</body>
+
+</html
