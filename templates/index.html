@@ -99,6 +99,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <br>
+                    <!-- An account can be Created or Sign into -->
                 <div class="bs-example bs-example-tabs">
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
@@ -109,8 +110,7 @@
                 <div class="modal-body">
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in" id="why">
-                            <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
-                            <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
+                            <p>This information is required so we can receive access to the site and its content. This information will not be sold, traded, or given to anyone.</p>
                         </div>
                         <div class="tab-pane fade active in" id="signin">
                             <form class="form-horizontal" method="POST" action="/login_user" name="loginForm" id="loginForm">
@@ -135,7 +135,7 @@
                                     <div id="wrongusernameorpassword" class="form-group button-submit-margin">
                                         {{loginmessage}}
                                     </div>
-                                    <!-- Button -->
+                                    <!-- Sign in Submit Button -->
                                     <div class="control-group">
                                         <label class="control-label" for="signin"></label>
                                         <div class="controls">
@@ -157,26 +157,27 @@
                                         </div>
                                     </div>
 
-                                    <!-- Text input-->
+                                    <!-- Username input -->
                                     <div class="control-group">
                                         <label class="control-label" for="signupUsername">Enter a Username:</label>
                                         <div class="controls">
                                             <input id="signupUsername" name="signupUsername" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                         </div>
                                     </div>
+                                    <!-- First Name input -->
                                     <div class="control-group">
                                         <label class="control-label" for="firstName">Enter your First Name:</label>
                                         <div class="controls">
                                             <input id="firstName" name="firstName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                         </div>
                                     </div>
+                                    <!-- Last Name input -->
                                     <div class="control-group">
                                         <label class="control-label" for="lastName">Enter your Last Name :</label>
                                         <div class="controls">
                                             <input id="lastName" name="lastName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                         </div>
                                     </div>
-
                                     <!-- Password input-->
                                     <div class="control-group">
                                         <label class="control-label" for="signupPassword">Enter a Password:</label>
@@ -185,7 +186,6 @@
                                             <em>1-8 Characters</em>
                                         </div>
                                     </div>
-
                                     <!-- Text input-->
                                     <div class="control-group">
                                         <label class="control-label" for="confirmPassword">Re-Enter Password:</label>
@@ -197,7 +197,7 @@
                                     <div class="form-group button-submit-margin" id="signupMessages">
                                         {{message}}
                                     </div>
-                                    <!-- Button -->
+                                    <!-- Sign Up Submit Button -->
                                     <div class="control-group">
                                         <label class="control-label" for="confirmsignup"></label>
                                         <div class="controls">
@@ -219,10 +219,12 @@
     </div>
     <div class="row" style="margin-bottom: 0px; padding: 0px; margin: 0px;">
         <div class="col-xs-12" style="padding: 0px; margin: 0px;">
+            <!-- Background Image -->
             <div class="pizza-wallpaper">
                 <div style="color:white;top: 30%;position: relative;">
                     <h2 class="homepageheading">Homepage</h2>
                     <p class="homepageparagraph" style="text-align: center;">Welcome to the homepage of my cookbook. Search for a particular recipe or sign in/register and create your own recipes.</p>
+                    <!--     Sign In/Sign Up button -->
                     <div style="position:absolute; left:50%; margin-left:-75px; margin-right:-75px;">
                         {% if session['isLoggedin'] %}
                         <ul id="nav-mobile">

@@ -50,6 +50,7 @@
         </div>
     </div>
 </div>
+<!-- Recipe Search Results -->
 <div class="row results-col-xs">
     <!--Recipe Search Results -->
     <div class="row" id="searchResult">
@@ -60,26 +61,33 @@
             </div>
         </div>
     </div>
+    <!-- Tope 9 Recipes by Votes-->
     <h2>Top Recipes</h2>
     <ul class="collapsible" data-collapsible="accordion">
         
         {% for recipe in recipes %}
+        <!-- Recipe Information -->
         <div class="custommargin initialRecipes">
             <li>
                 <div class="contentbox col-xs-12 col-md-6 col-lg-4">
+                    <!-- Recipe Name -->
                     <h4 style="text-align: center; font-size: 16px;"><strong>{{recipe.recipe_name}} </strong></h4>
                     <div class="collapsible-header equalizecontentboxheights">
                         <div class="row">
+                            <!-- Recipe Image -->
                             <div class="imageposition">
                                 <img src="{{recipe.images}}" onerror="if (this.src != '/static/img/recipes/errorimage.jpg') this.src = '/static/img/recipes/errorimage.jpg';" style="width: 100%;height: 280px;">
                             </div>
                             <ul class="col-xs-12 recipeinfo" style="height: 220px;    display: table; table-layout: fixed; width: 100%;border: 1px solid #c2c2c2; -moz-box-sizing: border-box;box-sizing: border-box;">
+                                <!-- Recipe Category -->
                                 <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.category}}">
                                     Category - <strong> {{recipe.recipe_category}} </strong>
                                 </span></li>
+                                <!-- Recipe Cuisine -->
                                 <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.cuisine}}">
                                     Cuisine - <strong> {{recipe.cuisine}} </strong>
                                 </span></li>
+                                <!-- Recipe Allergen -->
                                 <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;" title="Filter all recipes by {{recipe.allergens}}">
                                     Allergens - <strong>{% if recipe.allergens|length > 0 %}
                                                 {% for allergens in recipe.allergens %}
@@ -89,17 +97,21 @@
                                                 No Allergens
                                             {% endif %}</strong>
                                 </span></li>
+                                <!-- Recipe Description -->
                                 <li style="display: table-row;"><span class="task_header col-xs-12" style="display: table-cell; vertical-align: middle;">
                                     Description - <strong> {{recipe.description}}</strong>
                                 </span></li>
                                 <li style="display: table-row;"><span class="col-xs-12" style="display: table-cell; vertical-align: middle;">
                                     <div class="card-footer col-xs-6" style="padding: 0px;margin: 0px;">
+                                        <!-- Recipe Creation Date -->
                                         <div class="card-text"><small class="text-muted">Created:
                                                 {{recipe['dateCreated'].strftime('%d-%b-%Y')}}</small></div>
+                                                <!-- Recipe Vote Numbers -->
                                         <div class="card-text"><small class="text-muted"><i class="far fa-heart"></i>
                                                 {{ recipe.votes }}</small></div>
                                     </div>
                                     <div class="waves-effect waves-light btn viewrecipebuttonmargin col-xs-6" style="margin: 0px;">
+                                        <!-- View Recipe Button -->
                                         <div>
                                             <a class="viewrecipebutton" href="{{ url_for('view_recipe', recipe_id=recipe._id)}}">View Recipe</a>
                                         </div>

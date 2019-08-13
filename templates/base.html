@@ -13,7 +13,8 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"></head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+</head>
 
 <body>
     <header>
@@ -99,6 +100,7 @@
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <br>
+                    <!-- An account can be Created or Sign into -->
                     <div class="bs-example bs-example-tabs">
                         <ul id="myTab" class="nav nav-tabs">
                             <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
@@ -108,10 +110,9 @@
                     </div>
                     <div class="modal-body">
                         <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade in" id="why">
-                                <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
-                                <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
-                            </div>
+                        <div class="tab-pane fade in" id="why">
+                            <p>This information is required so we can receive access to the site and its content. This information will not be sold, traded, or given to anyone.</p>
+                        </div>
                             <div class="tab-pane fade active in" id="signin">
                                 <form class="form-horizontal" method="POST" action="/login_user" name="loginForm" id="loginForm">
                                     <fieldset>
@@ -135,7 +136,7 @@
                                         <div id="wrongusernameorpassword" class="form-group button-submit-margin">
                                             {{loginmessage}}
                                         </div>
-                                        <!-- Button -->
+                                        <!-- Sign in Submit Button -->
                                         <div class="control-group">
                                             <label class="control-label" for="signin"></label>
                                             <div class="controls">
@@ -156,27 +157,27 @@
                                                 <input id="Email" name="Email" class="form-control" type="email" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
                                             </div>
                                         </div>
-
-                                        <!-- Text input-->
+                                        <!-- Username input -->
                                         <div class="control-group">
                                             <label class="control-label" for="signupUsername">Enter a Username:</label>
                                             <div class="controls">
                                                 <input id="signupUsername" name="signupUsername" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                             </div>
                                         </div>
+                                        <!-- First Name input-->
                                         <div class="control-group">
                                             <label class="control-label" for="firstName">Enter your First Name:</label>
                                             <div class="controls">
                                                 <input id="firstName" name="firstName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                             </div>
                                         </div>
+                                        <!-- Last Name input-->
                                         <div class="control-group">
                                             <label class="control-label" for="lastName">Enter your Last Name :</label>
                                             <div class="controls">
                                                 <input id="lastName" name="lastName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
                                             </div>
                                         </div>
-
                                         <!-- Password input-->
                                         <div class="control-group">
                                             <label class="control-label" for="signupPassword">Enter a Password:</label>
@@ -197,7 +198,7 @@
                                         <div class="form-group button-submit-margin" id="signupMessages">
                                             {{message}}
                                         </div>
-                                        <!-- Button -->
+                                        <!-- Sign Up Submit Button -->
                                         <div class="control-group">
                                             <label class="control-label" for="confirmsignup"></label>
                                             <div class="controls">
@@ -219,19 +220,19 @@
         </div>
         {% block content %} {% endblock %}
     </div>
-        <!--- The footer social media links are simply for display there not real --->
-<footer class="footer footer-mobile">
-    <div class="col-sm-12">
-    <h3 class="uppercase general-sub" style="margin-top: 0px;">Social links</h3>
-      <ul class="list-inline social-links">
-          <li><a target="_blank" href="#"><i class="fa fa-facebook footer-icon-color"></i></a></li>
-          <li><a target="_blank" href="#"><i class="fa fa-twitter footer-icon-color"></i></a></li>
-          <li><a target="_blank" href="#"><i class="fa fa-linkedin footer-icon-color"></i></a></li>
-          <li><a target="_blank" href="#"><i class="fa fa-instagram footer-icon-color"></i></a></li>
-          <li><a target="_blank" href="#"><i class="fa fa-youtube footer-icon-color"></i></a></li>
-      </ul>
-    </div>
-  </footer>
+    <!-- The footer social media links are simply for display they are not real links -->
+    <footer class="footer footer-mobile">
+        <div class="col-sm-12">
+            <h3 class="uppercase general-sub" style="margin-top: 0px;">Social links</h3>
+            <ul class="list-inline social-links">
+                <li><a target="_blank" href="#"><i class="fa fa-facebook footer-icon-color"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fa fa-twitter footer-icon-color"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fa fa-linkedin footer-icon-color"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fa fa-instagram footer-icon-color"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fa fa-youtube footer-icon-color"></i></a></li>
+            </ul>
+        </div>
+    </footer>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

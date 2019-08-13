@@ -42,7 +42,7 @@ used to link the app.py file to the requirements.txt file
 
 ## page by page walkthrough of website features
 1. base.html- This is an unviewable webpage that's used to create continuity in design for all the website pages. 
-2. index.html - This is the start page of the website, it displays a welcome message and the ability to sign in/register for an account.
+2. index.html - This is the start page of the website, it displays a welcome message and the ability to sign in/register for an account. I made this file independent of the base.html file.
 3. addcategory.html - This page allows you to create categories to be used for the recipes.
 4. managecategories.html - This page allows you to view and managed the categories that exist
 5. editcategory.html - This page is connect to the managecategories.html page and is designed to edit the existing categoies 
