@@ -37,9 +37,9 @@ The statistics.html file in linked to the json file that provides the data used 
 contains the programs used to create the webiste.
 
     *-Procfile-*
-used to link the app.py app.py file to the requirements.txt file
+used to link the app.py file to the requirements.txt file
 
-The graphs used for the websitestats.html page exist at path /static/img/graphs
+
 
 ## page by page walkthrough of website features
 base.html- This is an unviewable webpage that's used to create continuity in design for all the website pages. 
@@ -54,7 +54,7 @@ viewrecipe.html - The page is conneted to the recipesearch.html and index.html p
 recipesearchresults.html - This page is used to provide the recipe results on the recipesearch.html page 
 addrecipe.html - This page is used to add recipes for other users to search and view and recipe is also added to your myrecipe.html page.
 websitestats.html - This page contains tabes, pie and bar charts displaying the number of each category, cuisine and allergen in the recipe database.
-
+The graphs used for the websitestats.html page exist at path /static/img/graphs
 ## Potential future features
 On The website statistics pages I didnt know how to get the graphs and tables to update automatically so it has to be done manually. 
 
