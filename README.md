@@ -2,8 +2,8 @@ used modifed version on this code snuppet for login/registration form
 https://bootsnipp.com/snippets/8y25# data-centric-dev-milestone-project
 # data-centric-dev-milestone-project
 
-Heroku App: https://data-centric-cookbook.herokuapp.com
-Heroku git: https://git.heroku.com/data-centric-cookbook.git
+Heroku App: https://data-centric-dev-milestone-pro.herokuapp.com/
+Heroku git: https://git.data-centric-dev-milestone-pro.git
 GitHub: https://github.com/GrantMCA93/data-centric-dev-milestone-project
 
 Project 4 data-centric-dev-milestone-project
@@ -27,7 +27,7 @@ The process for designing this website was to create a cooking website with inte
     *-app.py-*
 The app.py file - is used to store and retrieve my recipes database information from mlab using mongodb.
     app.py is also used to store and retrieve login information for each used Email, Username, First Name, Last Name and Password
-    app.py is used to retrieve information when searching for a particular reciepe .
+    app.py is used to retrieve information when searching for a particular recipe .
     allong with deleteing and editing and voting on recipes, searching for recipes using different parameters categoies, cuisine and allergens.
     The app.py also using to link to statistics.py what is used to provide the table, pie and bar charts for the websitestats.html page.
      
@@ -57,8 +57,8 @@ recipesearchresults.html - This page is used to provide the recipe results on th
 addrecipe.html - This page is used to add recipes for other users to search and view and recipe is also added to your myrecipe.html page.
 websitestats.html - This page contains tabes, pie and bar charts displaying the number of each category, cuisine and allergen in the recipe database.
 
-Potential future features.
-
+*-Potential future features-*
+On The website statistics pages I didnt know how to get the graphs and tables to update automatically so it has to be done manually. 
 
 *-Technologies Used-*
 
@@ -69,6 +69,7 @@ Bootstrap
 JQuery
 Python
 Json
+mlab
 
 *-Code Testing-*
 
@@ -94,6 +95,7 @@ mlab
 *-Credits-* 
 app.py
 #Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 to help me with my app.py code
+The login form using the basic template used was taken from https://bootsnipp.com/snippets/8y25
 
 
 
@@ -111,10 +113,4 @@ Mentor:- Chris Zielinski  ckz8780@gmail.com
 
 
 
-The login form using the basic template used was taken from https://bootsnipp.com/snippets/8y25
 
-The website statistics pages i didnt know how to get the graphs and tables to update automatically so it has to be done manually. Thers an improvement that could be made.
-
-
-
-# data-centric-dev-milestone-project
