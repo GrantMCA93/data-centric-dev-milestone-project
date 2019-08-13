@@ -4,7 +4,6 @@
 2. Heroku git: https://git.data-centric-dev-milestone-pro.git
 3. GitHub: https://github.com/GrantMCA93/data-centric-dev-milestone-project
 
-Project 4 data-centric-dev-milestone-project
 
 This project is designed to allow users to search through recipes in an interactive way, to find a new and exciting recipe to cook.
 The website allows you to create you own recipes aswell as vote for other users recipe you like.
@@ -103,6 +102,18 @@ images path location /static/img/recipes
 2. "likebutton.png" This image is used for the vote button of each recipe. The images source location is "http://pngimg.com/uploads/like/like_PNG29.png"
 3. "pizza-wallpaper.jpeg" This image is used as the background on the Homepage of the website. The iamges source location is "https://cdn.pixabay.com/photo/2017/09/30/15/12/pizza-2802337_1280.jpg"
 4. "print.png" This image is used for the print icon on the viewrecipe.html page. The images source location is "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Human-gnome-dev-printer.svg/128px-Human-gnome-dev-printer.svg.png"
+
+Graphs used on statistics page path /static/img/graphs
+1. "barchart-allergens.svg" This is a barchart displaying the number of recipes with Allergens.
+2. "barchart-category.svg" This is a barchart displaying the number of recipes with Categories.
+3. "barchart-cuisine.svg"  This is a barchart displaying the number of recipes with Cuisine.
+4. "piechart-allergens.svg" This is piechart displaying the number of recipes with Allergens. 
+5. "piechart-category.svg" This is piechart displaying the number of recipes with Categories.
+6. "piechart-cuisine.svg" This is piechart displaying the number of recipes with Cuisine.
+
+json files path location /static/js
+1. "cookbookcustom_script.js" This file is used to create messages that display for signing up, logging in , rating recipes and on search page for Cuisine, Category and Allergs searches
+2. "counter.js" This file is used to create a character limit when creating and editing recipes. 
 
 ## Acknowledgements 
 

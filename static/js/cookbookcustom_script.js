@@ -95,56 +95,6 @@
   
   // #endregion
 
-
-
-    
-  
-    
-   // #region Add EXTRA INGREDIENT OR INSTRUCTION inputs to add recipe form
-  
-    $('#add_ingredient').click(function () {
-      addExtraInputs("i");
-      return false; //return false;  stops page jumping back to top
-    })
-  
-    $('#add_instruction').click(function () {
-      addExtraInputs("m");
-      return false; //return false;  stops page jumping back to top
-    })
-  
-    function addExtraInputs(inputs) {
-      if (inputs == "i") {
-        var ingred = '<div class="added-ingred">' +
-          '<input type="text" class="input form-control" placeholder="Ingredient" name="ingredient">' +
-          '<a href="#" class="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i> Remove</a></div>';
-        $("#ingredients_input_list").append(ingred);
-      }
-      else {
-        var method = '<div class="added-instruction">' +
-          '<textarea class="input form-control" placeholder="Instruction" name="instruction"></textarea>' +
-          '<a href="#" class="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i> Remove</a></div>';
-        $("#instruction_input_list").append(method);
-      }
-    }
-  
-
-      $('#ingredients_input_list').on('click', '.delete', function () {
-        var rem = $(this).closest('div.added-ingred');
-        $(rem).remove();
-        return false; //return false;  stops page jumping to top
-      });
-
-
-      $('#instruction_input_list').on('click', '.delete', function () {
-        var rem = $(this).closest('div.added-instruction');
-        $(rem).remove();
-        return false; //return false;  stops page jumping to top
-      });
-
-
-  // #endregion
-
-
   // #region GET CATEGORY FROM SEARCH FILTER AND PASS TO FLASK
 
 
@@ -250,33 +200,5 @@
   // #endregion  
   
   
-
-    $('#recipe_nameFilter').submit(function (event) {
-      event.preventDefault();
-      var recipe_name = $('#searchrecipe_name').val();
-      $.ajax({
-        url: '/filter_by_recipe_name',
-        data: recipe_name,
-        type: 'POST',
-        success: function (response) {
-          $('.initialRecipes').hide();
-          $("#searchResult").show();
-          $("h3.section-subheading").html("Recipes searched by recipe name: " + recipe_name);
-          if (response != "fail") {
-            $("#recipeResult").html(response);
-          }
-          else {
-            $("#recipeResult").html("There were no recipes found with <span class='search-param'>" + recipe_name + "</span> as the Recipe Name. <br>Try searching again." );
-          }
-          //scroll window to results
-          $('html, body').animate({
-            scrollTop: $(".results-col-xs").offset() -300
-          }, 'slow');
-        },
-        error: function (error) {
-          $("#recipeResult").html("There was an error searching the recipes. Please try again.");
-        }
-      });
-    });
 
   
