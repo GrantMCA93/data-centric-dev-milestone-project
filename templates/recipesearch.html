@@ -5,35 +5,7 @@
 
     <h2>Recipe Search</h2>
     <h3 class="section-subheading text-muted">Search and filter recipes. Please Search Recipe by Name, category, cuisine or allergen</h3>
-    <!--RECIPE NAME SEARCH-->
-    <div class="row">
-        <div class="col-xs-12">
-            <form id="recipe_nameFilter" name="recipe_nameFilter" method="POST">
-                <label for="searchrecipe_name">Search by Recipe Name</label>
-                <div class="input-group mb-3">
-                    <input type="input" class="form-control" id="searchrecipe_name" name="searchrecipe_name" placeholder="Enter recipe name" aria-label="Search by recipe name" aria-describedby="recipe_nameFilterButton" required>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" id="recipe_nameFilterButton" type="submit">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
     <div class="col-xs-12">
-        <!--RECIPE NAME FILTER-->
-        <div class="col-lg-12 col-md-12">
-            <div class="row">
-                <label class="marginrightleft10px" for="searchrecipe_name" >Search by Recipe Name</label>
-                <form id="recipe_nameFilter" name="recipe_nameFilter" method="POST">
-                    <select class="custom-select marginrightleft10px" id="recipe_nameFilter" name="recipe_nameFilter" >
-                                <option >Select a Recipe Name</option>
-                                  {% for cat in recipes %}
-                                  <option value="{{cat.recipe_name}}">{{cat.recipe_name}}</option>
-                                    {% endfor %}
-                            </select>
-                </form>
-            </div>
-        </div>
         <!--CATEGORY FILTER-->
         <div class="col-lg-4 col-md-12">
             <div class="row">
@@ -88,12 +60,14 @@
             </div>
         </div>
     </div>
+    <h2>Top Recipes</h2>
     <ul class="collapsible" data-collapsible="accordion">
+        
         {% for recipe in recipes %}
         <div class="custommargin initialRecipes">
             <li>
                 <div class="contentbox col-xs-12 col-md-6 col-lg-4">
-                    <h4 style="text-align: center; font-size: 17px;"><strong>{{recipe.recipe_name}} </strong></h4>
+                    <h4 style="text-align: center; font-size: 16px;"><strong>{{recipe.recipe_name}} </strong></h4>
                     <div class="collapsible-header equalizecontentboxheights">
                         <div class="row">
                             <div class="imageposition">
