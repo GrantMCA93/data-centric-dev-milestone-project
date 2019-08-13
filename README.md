@@ -60,13 +60,17 @@ On The website statistics pages I didnt know how to get the graphs and tables to
 
 ## Technologies Used
 
-Bootstrap	
-Bootstrap
-JQuery
-Python
-Json
-mlab
+• Bootstrap	
+• JQuery
+• Python
+• Json
+• mlab
 
+o Bootstrap
+o JQuery
+o Python
+o Json
+o mlab
 
 ## Code Testing
 
