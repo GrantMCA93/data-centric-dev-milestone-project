@@ -11,9 +11,9 @@ Click==7.0
 colorama==0.3.9
 configobj==5.0.6
 constantly==15.1.0
-cryptography==2.1.4
+cryptography==2.7
 cycler==0.10.0
-Django==2.0.2
+Django==2.2.4
 docutils==0.14
 Flask==1.1.1
 Flask-PyMongo==2.3.0
@@ -48,7 +48,6 @@ Pillow==5.1.0
 pipenv==2018.11.26
 pyasn1==0.4.5
 pyasn1-modules==0.2.1
-pycrypto==2.6.1
 Pygments==2.2.0
 PyJWT==1.5.3
 pylint==1.8.1
@@ -62,9 +61,9 @@ pyserial==3.4
 python-dateutil==2.8.0
 python-debian==0.1.32
 pytz==2019.1
-pyxdg==0.25
+pyxdg==0.26
 PyYAML==5.1
-requests==2.18.4
+requests==2.22.0
 requests-unixsocket==0.1.5
 roman==2.0.0
 rsa==3.4.2
@@ -74,7 +73,7 @@ service-identity==16.0.0
 six==1.12.0
 stevedore==1.30.1
 systemd-python==234
-Twisted==17.9.0
+Twisted==19.7.0
 urllib3==1.25.3
 virtualenv==16.7.2
 virtualenv-clone==0.5.3
