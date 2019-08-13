@@ -1,7 +1,10 @@
 used modifed version on this code snuppet for login/registration form
 https://bootsnipp.com/snippets/8y25# data-centric-dev-milestone-project
 # data-centric-dev-milestone-project
-# data-centric-dev-milestone-project
+
+Heroku App: https://data-centric-cookbook.herokuapp.com
+Heroku git: https://git.heroku.com/data-centric-cookbook.git
+GitHub: https://github.com/GrantMCA93/data-centric-dev-milestone-project
 
 Project 4 data-centric-dev-milestone-project
 
