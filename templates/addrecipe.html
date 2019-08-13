@@ -8,7 +8,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="recipe_name" name="recipe_name" type="text" class="validate" maxLength="42" placeholder="Character Limit 42" required>
-                <label for="icon_prefix">Recipe name</label>
+                <label for="recipe_name">Recipe name</label>
                 <p class="limit">limit: 42 characters</p>
             </div>
         </div>
@@ -56,7 +56,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="main_ingredient" name="main_ingredient" type="text" class="validate" required>
-                <label for="icon_prefix">Main Ingredient</label>
+                <label for="main_ingredient">Main Ingredient</label>
             </div>
         </div>
         <!-- Recipe Description -->
@@ -65,7 +65,7 @@
                 <i class="material-icons prefix">subject</i>
                 <input name="description" id="description" type="text" class="materialize-textarea" maxLength="160" placeholder="Character Limit 160" required>
                 <p class="limit">limit: 160 characters</p>
-                <label for="icon_telephone">Description</label>
+                <label for="description">Description</label>
             </div>
         </div>
         <!-- Recipe URL source -->
@@ -73,7 +73,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="recipe_url" name="recipe_url" type="text" class="validate" required>
-                <label for="icon_prefix">Recipe URL Source</label>
+                <label for="recipe_url">Recipe URL Source</label>
             </div>
         </div>
         <!-- Recipe Difficulty -->
@@ -94,7 +94,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="serves" name="serves" type="number" class="validate" required>
-                <label for="icon_prefix">Serves</label>
+                <label for="serves">Serves</label>
             </div>
         </div>
         <!-- Recipe Preperation Time -->
@@ -102,7 +102,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="prep_time" name="prep_time" type="text" class="validate" required>
-                <label for="icon_prefix">Prep Time</label>
+                <label for="prep_time">Prep Time</label>
             </div>
         </div>
         <!-- Recipe Cooking Time -->
@@ -110,7 +110,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="cook_time" name="cook_time" type="text" class="validate" required>
-                <label for="icon_prefix">Cook Time</label>
+                <label for="cook_time">Cook Time</label>
             </div>
         </div>
         <!-- Recipe Image -->
@@ -118,14 +118,14 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="images" name="images" type="text" class="validate" required>
-                <label for="icon_prefix">Image url</label>
+                <label for="images">Image url</label>
             </div>
         </div>
         <!-- Recipe Ingredients -->
         <div class="form-group">
             <div id="ingredients_input_list">
                 <i class="material-icons prefix">subject</i>
-                <label for="inputIngredients">Ingredients</label>
+                <label for="ingredient1">Ingredients</label>
                 <input type="text" class="input form-control" id="ingredient1" name="ingredient" placeholder="Ingredient 1 Recipe Requires two ingredients." required />
                 <input type="text" class="input form-control" id="ingredient2" name="ingredient" placeholder="Ingredient 2 Required" required />
                 <input type="text" class="input form-control" id="ingredient3" name="ingredient" placeholder="Ingredient 3" />
@@ -138,10 +138,9 @@
         <div class="row">
             <div class="input-field col s12" id="instruction_input_list">
                 <i class="material-icons prefix">subject</i>
-                <label for="icon_telephone">Instructions</label>
+                <label for="instruction">Instructions</label>
                 <textarea class="input form-control" id="instruction" name="instruction" placeholder="Instruction 1 Recipe Requires atleast one instruction." style="min-height:100px" required></textarea>
                 <textarea class="input form-control" id="instruction1" name="instruction" placeholder="Instruction 2" style="min-height:100px"></textarea>
-                <label for="icon_telephone">Instructions</label>
                 <a href="#" id="add_instruction" title="Add another instruction"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</a>
             </div>
         </div>
