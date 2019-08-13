@@ -42,19 +42,20 @@ used to link the app.py file to the requirements.txt file
 
 
 ## page by page walkthrough of website features
-base.html- This is an unviewable webpage that's used to create continuity in design for all the website pages. 
-index.html - This is the start page of the website, it displays a welcome message and the ability to sign in/register for an account.
-addcategory.html - This page allows you to create categories to be used for the recipes.
-managecategories.html - This page allows you to view and managed the categories that exist
-editcategory.html - This page is connect to the managecategories.html page and is designed to edit the existing categoies 
-editrecipe.html - This page allows you to recipe existing recipes.
-myrecipe.html - This page is the first page viewed when a user logs into an account. It allows you to view the recipes created by that account. 
-recipesearch.html - This page is designed to allow people to search through the existing recipes and find a recipe from different parameters.
-viewrecipe.html - The page is conneted to the recipesearch.html and index.html page allow you to view more information about each recipe.
-recipesearchresults.html - This page is used to provide the recipe results on the recipesearch.html page 
-addrecipe.html - This page is used to add recipes for other users to search and view and recipe is also added to your myrecipe.html page.
-websitestats.html - This page contains tabes, pie and bar charts displaying the number of each category, cuisine and allergen in the recipe database.
+1. base.html- This is an unviewable webpage that's used to create continuity in design for all the website pages. 
+2. index.html - This is the start page of the website, it displays a welcome message and the ability to sign in/register for an account.
+3. addcategory.html - This page allows you to create categories to be used for the recipes.
+4. managecategories.html - This page allows you to view and managed the categories that exist
+5. editcategory.html - This page is connect to the managecategories.html page and is designed to edit the existing categoies 
+6.editrecipe.html - This page allows you to recipe existing recipes.
+7. myrecipe.html - This page is the first page viewed when a user logs into an account. It allows you to view the recipes created by that account. 
+8. recipesearch.html - This page is designed to allow people to search through the existing recipes and find a recipe from different parameters.
+9. viewrecipe.html - The page is conneted to the recipesearch.html and index.html page allow you to view more information about each recipe.
+10. recipesearchresults.html - This page is used to provide the recipe results on the recipesearch.html page 
+11. addrecipe.html - This page is used to add recipes for other users to search and view and recipe is also added to your myrecipe.html page.
+12. websitestats.html - This page contains tabes, pie and bar charts displaying the number of each category, cuisine and allergen in the recipe database.
 The graphs used for the websitestats.html page exist at path /static/img/graphs
+
 ## Potential future features
 On The website statistics pages I didnt know how to get the graphs and tables to update automatically so it has to be done manually. 
 
