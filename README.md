@@ -21,21 +21,21 @@ The process for designing this website was to create a cooking website with inte
 
 ## Features
 
-    *-app.py-*
+    -app.py-
 The app.py file - is used to store and retrieve my recipes database information from mlab using mongodb.
     app.py is also used to store and retrieve login information for each used Email, Username, First Name, Last Name and Password
     app.py is used to retrieve information when searching for a particular recipe .
     allong with deleteing and editing and voting on recipes, searching for recipes using different parameters categoies, cuisine and allergens.
     The app.py also using to link to statistics.py what is used to provide the table, pie and bar charts for the websitestats.html page.
      
-     *-statistics.html-*  
+     -statistics.html-  
 The statistics.html file in linked to the json file that provides the data used for the table, pie and bar charts for the websitestats.html page.
     The code to retrieve the correct information for the table, pie and bar charts exists in this file.
 
-    *-requirements.txt-*
+    -requirements.txt-
 contains the programs used to create the webiste.
 
-    *-Procfile-*
+    -Procfile-
 used to link the app.py file to the requirements.txt file
 
 
