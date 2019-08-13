@@ -10,7 +10,7 @@ This project is designed to allow users to search through recipes in an interact
 The website allows you to create you own recipes aswell as vote for other users recipe you like.
 
 
-*-UX-*
+## UX
 
 This website is designed for people searching for recipes there interested in cooking. This is achieved by creating a visually appearing easy to interact with website.
 
@@ -20,7 +20,7 @@ The process for designing this website was to create a cooking website with inte
 2. https://www.bbcgoodfood.com/
 3. https://www.delish.com/
 
-*-Features-*
+## Features
 
     *-app.py-*
 The app.py file - is used to store and retrieve my recipes database information from mlab using mongodb.
@@ -41,7 +41,7 @@ used to link the app.py app.py file to the requirements.txt file
 
 The graphs used for the websitestats.html page exist at path /static/img/graphs
 
-*-page by page walkthrough of website features-*
+## page by page walkthrough of website features
 base.html- This is an unviewable webpage that's used to create continuity in design for all the website pages. 
 index.html - This is the start page of the website, it displays a welcome message and the ability to sign in/register for an account.
 addcategory.html - This page allows you to create categories to be used for the recipes.
@@ -55,10 +55,10 @@ recipesearchresults.html - This page is used to provide the recipe results on th
 addrecipe.html - This page is used to add recipes for other users to search and view and recipe is also added to your myrecipe.html page.
 websitestats.html - This page contains tabes, pie and bar charts displaying the number of each category, cuisine and allergen in the recipe database.
 
-*-Potential future features-*
+## Potential future features
 On The website statistics pages I didnt know how to get the graphs and tables to update automatically so it has to be done manually. 
 
-*-Technologies Used-*
+## Technologies Used
 
 •	
 o	
@@ -69,14 +69,14 @@ Python
 Json
 mlab
 
-*-Code Testing-*
+## Code Testing
 
 I’ve tested the code in chrome, Firefox, Microsoft edge browser and safari as well as the mobile versions of these browsers.
 I used W3C for CSS https://jigsaw.w3.org/css-validator/and HTML https://validator.w3.org/ to remove errors.
 
 
 
-*-Code Deployment-*
+## Code Deployment
 
 The project is pushed to github
 process used -
@@ -90,14 +90,14 @@ The projects is hosted on Github pages
 Heroku
 mlab
 
-*-Credits-* 
+## Credits 
 app.py
 #Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 to help me with my app.py code
 The login form used for website used the basic template from https://bootsnipp.com/snippets/8y25
 
 
 
-*-Media-*
+## Media
 The images used for each continent are all images founds from Google images, all the images licenses are Free to modify, share and use commerically.
 images path location /static/img/recipes
 1. "errorimage.jpg" This image is used when an error occurs displaying the desired Image for the recipe. The images source location is "https://cdn.pixabay.com/photo/2018/01/16/10/36/mistake-3085712_1280.jpg"
@@ -105,7 +105,7 @@ images path location /static/img/recipes
 3. "pizza-wallpaper.jpeg" This image is used as the background on the Homepage of the website. The iamges source location is "https://cdn.pixabay.com/photo/2017/09/30/15/12/pizza-2802337_1280.jpg"
 4. "print.png" This image is used for the print icon on the viewrecipe.html page. The images source location is "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Human-gnome-dev-printer.svg/128px-Human-gnome-dev-printer.svg.png"
 
-*-Acknowledgements-*
+## Acknowledgements 
 
 Mentor:- Chris Zielinski  ckz8780@gmail.com 
 
