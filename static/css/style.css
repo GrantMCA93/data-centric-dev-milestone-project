@@ -1,3 +1,4 @@
+/*------ Font Size and styles for all pages ------*/
 body{
     font-size: 13px !important;
     font-family: cursive !important;
@@ -7,6 +8,13 @@ ul{
     font-size: 13px !important;
 }
 
+h2{
+   display: flex;
+    justify-content: center; 
+    
+}
+
+/*------ Button Parameters ------*/
 
 .btn_small{
     height: 24px;
@@ -16,25 +24,20 @@ ul{
     padding: 0 0.5em;
 }
 
-.task_header{
-    margin-top: 5px;
-}
+/*------ Custom Margins ------*/
 
 .custommargin {
     margin: 10px 25px 10px 25px;
 }
 
-h2{
-   display: flex;
-    justify-content: center; 
-    
-}
+/*------ Reciepe Image Parameters ------*/
 
 .imageposition{
     justify-content: center;
     height: 40%;
 }
 
+/*------ View Recipe Image Position ------*/
 
 .imagepositionviewrecipe{
     display: flex; 
@@ -55,20 +58,20 @@ h2{
 /*}*/
 
 
+/*------ Navbar Link fonts ------*/
+
 .desktopnavfont{
     font-size: 16px;
 }
 
-/* Override materialize modal styles */
+/*----- Override materialize modal styles -----*/
 .modal {
      background-color: transparent; 
      max-height: none; 
      width: auto; 
 }
 
-.displayonmobile{
-        display: -webkit-box;
-}
+/*------ Custom Right amd left Margins ------*/
 
 .marginrightleft5px{
     margin-left: 5px;
@@ -79,46 +82,26 @@ h2{
     margin-right: 10px;
  }
 
+/*------ RECIPESEARCH page  Custom View Recipe Buttom ------*/
+
 .viewrecipebutton{
     color: white;
 }
+
+
+.viewrecipebuttonmargin{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/*------ VIEWRECIPE page custom edit and recipe button  ------*/
 
 .width100paddingbottom{
     width: 100%;
     padding-bottom: 24px !important;
 }
 
-.select-wrapper span.caret {
-    color: initial;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 10px;
-    margin: auto 0;
-    font-size: 0px; 
-    line-height: 10px;
-}
-
-
-.deletebutton{
-    margin: 0px;
-    border: 0px;
-    color: white;
-    background-color: #26a69a;
-    padding: 0px;
-}
-
-
-.buttonpadding{
-    padding: 3px  !important;
-}
-
-@media (max-width: 992px){
-d-lg-block {
-    display: block!important;
-}
-}
+/*------ MYRECIPES page keeps myrecipe information table inline on mobile devices  ------*/
 
 @media (max-width: 992px){
 .d-none {
@@ -126,16 +109,13 @@ d-lg-block {
 }
 }
 
-.col-xs-6 {
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
-}
+/*------ MYRECIPES page center text within my recipe table  ------*/
 
 .center-text{
     text-align: center!important;
 }
 
+/*------ MYRECIPES page center Buttoms within my recipe table  ------*/
 @media (min-width: 992px){
 .manage-recipe-buttons{
     display: flex;
@@ -151,46 +131,30 @@ d-lg-block {
   
     }
 }
-.equalizecontentboxheights{
-    height: auto;
-}
 
-.recipeinfo
-{
-    border-bottom: solid;
-    border-right: solid;
-    border-left: solid;
-    margin-left: 0px;
-    margin-right: 0px;
-        border-color: gainsboro;
-}
-
-.viewrecipebuttonmargin{
-    margin-left: 15px;
-    margin-right: 15px;
-}
+/*------ Customized colour of rated heart symbol  ------*/
 
 .fa-heart:before {
     color: red;
 }
 
-/* Homepage background */
+/*----- Homepage (index) background -----*/
 
 
 .pizza-wallpaper {
-  /* The image used */
+  /*----- The image used -----*/
   background-image: url("/static/img/recipes/pizza-wallpaper.jpeg");
 
-  /* Full height */
+  /*----- Full height -----*/
   height: 80%; 
 
-  /* Center and scale the image nicely */
+  /*----- Center and scale the image nicely -----*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/*Homepage background text size on large screens */
+/*----- Homepage (index) background text size on large screens -----*/
 @media (min-width: 768px){
 .homepageheading {
     font-size: 40px;
@@ -204,7 +168,7 @@ d-lg-block {
 }
 
 
-/* Footer */
+/*----- Footer -----*/
 .footer {
     bottom: 0;
     height: 100px;

@@ -20,9 +20,9 @@
             <!-- Displayed the recipes in the users collection -->
             <div class="row">
                 <div class="col-xs-6 col-md-4 col-lg-3 ">Name</div>
-                <div class="col-xs-2 d-none d-lg-block ">Description</div>
-                <div class="col-xs-2 d-none d-lg-block center-text">Date Created and last modified</div>
-                <div class="col-xs-2 col-lg-3  d-none d-lg-block center-text">Vote</div>
+                <div class="col-xs-2 d-none">Description</div>
+                <div class="col-xs-2 d-none -text">Date Created and last modified</div>
+                <div class="col-xs-2 col-lg-3  d-none center-text">Vote</div>
                 <div class="col-xs-6 col-lg-2  col-md-2 col-lg-4 center-text">Manage Recipe</div>
             </div>
             {%endif%}
@@ -33,13 +33,13 @@
                     <a href="/view_recipe/{{recipe._id}}">{{recipe.recipe_name}}</a>
                 </div>
                 <!-- Recipe Description -->
-                <div class="col-xs-2 d-none d-lg-block pt-1 pb-1">
+                <div class="col-xs-2 d-none pt-1 pb-1">
                     {{ recipe.description|truncate(50, False, '...', 0) }}
                 </div>
                 <!-- Date Recipe was Created or edited last -->
-                <div class="col-xs-2 d-none d-lg-block text-center pt-3 center-text">Created: {{recipe.dateCreated.strftime('%d-%b-%Y')}}<br> Modified: {{recipe.dateModified.strftime('%d-%b-%Y')}}</div>
+                <div class="col-xs-2 d-none text-center pt-3 center-text">Created: {{recipe.dateCreated.strftime('%d-%b-%Y')}}<br> Modified: {{recipe.dateModified.strftime('%d-%b-%Y')}}</div>
                 <!-- Number Of Votes for Recipe -->
-                <div class="col-xs-2 col-lg-3  d-none d-lg-block text-center pt-4 center-text">{{ recipe.votes }}</div>
+                <div class="col-xs-2 col-lg-3  d-none text-center pt-4 center-text">{{ recipe.votes }}</div>
                 <!-- Edit or Delete Reicipe -->
                 <div class="col-xs-6 col-md-2 col-lg-2">
                     <div class="row manage-recipe-buttons">
