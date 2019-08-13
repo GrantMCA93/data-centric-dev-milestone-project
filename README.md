@@ -60,8 +60,8 @@ On The website statistics pages I didnt know how to get the graphs and tables to
 
 ## Technologies Used
 
-•	
-o	
+• Bootstrap	
+o Bootstrap
 
 Bootstrap
 JQuery
