@@ -1,8 +1,8 @@
 # data-centric-dev-milestone-project
 
-Heroku App: https://data-centric-dev-milestone-pro.herokuapp.com/
-Heroku git: https://git.data-centric-dev-milestone-pro.git
-GitHub: https://github.com/GrantMCA93/data-centric-dev-milestone-project
+1. Heroku App: https://data-centric-dev-milestone-pro.herokuapp.com/
+2. Heroku git: https://git.data-centric-dev-milestone-pro.git
+3. GitHub: https://github.com/GrantMCA93/data-centric-dev-milestone-project
 
 Project 4 data-centric-dev-milestone-project
 
