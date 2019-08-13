@@ -1,5 +1,3 @@
-used modifed version on this code snuppet for login/registration form
-https://bootsnipp.com/snippets/8y25# data-centric-dev-milestone-project
 # data-centric-dev-milestone-project
 
 Heroku App: https://data-centric-dev-milestone-pro.herokuapp.com/
@@ -95,7 +93,7 @@ mlab
 *-Credits-* 
 app.py
 #Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 to help me with my app.py code
-The login form using the basic template used was taken from https://bootsnipp.com/snippets/8y25
+The login form used for website used the basic template from https://bootsnipp.com/snippets/8y25
 
 
 
