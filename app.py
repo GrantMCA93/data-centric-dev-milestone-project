@@ -414,25 +414,7 @@ def recipesearchquery():
                                reciperesults=filteredRecipes)
 
 
-                              
-# function get recipes by recipe name
-@app.route('/filter_by_recipe_name', methods=['POST', 'GET'])
-def filter_by_recipe_name():
-    filteredRecipes = None
-    recipe_name = str(request.get_data()).lower()
-    recipe_name = recipe_name[1:]
-    recipe_name = recipe_name.strip('\'')
-          
 
-    filteredRecipes = [recipe for recipe in mongo.db.recipes.find(
-            {'$query':
-                {'recipe_name': recipe_name},
-                '$orderby': {'votes': -1}}
-            )]
-            
-    print (recipe_name)  
-    return render_template("recipesearchresults.html",
-                       reciperesults=filteredRecipes)
 
 # function get recipes by cuisine
 @app.route('/filter_by_cuisine/<cuisine>', methods=['POST', 'GET'])
