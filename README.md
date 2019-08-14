@@ -54,6 +54,7 @@ The graphs used for the websitestats.html page exist at path /static/img/graphs
 
 ## Potential future features
 On The website statistics pages I didnt know how to get the graphs and tables to update automatically so it has to be done manually. 
+Adding a piechart that can display allergens. The issue was allergens was a list and i was unable to workout how to call the allergens lists and convert the format to work on the piechart.
 
 ## Technologies Used
 
@@ -104,9 +105,8 @@ Graphs used on statistics page path /static/img/graphs
 1. "barchart-allergens.svg" This is a barchart displaying the number of recipes with Allergens.
 2. "barchart-category.svg" This is a barchart displaying the number of recipes with Categories.
 3. "barchart-cuisine.svg"  This is a barchart displaying the number of recipes with Cuisine.
-4. "piechart-allergens.svg" This is piechart displaying the number of recipes with Allergens. 
-5. "piechart-category.svg" This is piechart displaying the number of recipes with Categories.
-6. "piechart-cuisine.svg" This is piechart displaying the number of recipes with Cuisine.
+4. "piechart-category.svg" This is piechart displaying the number of recipes with Categories.
+5. "piechart-cuisine.svg" This is piechart displaying the number of recipes with Cuisine.
 
 json files path location /static/js
 1. "cookbookcustom_script.js" This file is used to create messages that display for signing up, logging in , rating recipes and on search page for Cuisine, Category and Allergs searches
