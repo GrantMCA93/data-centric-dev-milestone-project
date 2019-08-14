@@ -21,21 +21,21 @@ The process for designing this website was to create a cooking website with inte
 
 ## Features
 
-    -app.py-
+-app.py-
 The app.py file - is used to store and retrieve my recipes database information from mlab using mongodb.
     app.py is also used to store and retrieve login information for each used Email, Username, First Name, Last Name and Password
     app.py is used to retrieve information when searching for a particular recipe .
     allong with deleteing and editing and voting on recipes, searching for recipes using different parameters categoies, cuisine and allergens.
     The app.py also using to link to statistics.py what is used to provide the table, pie and bar charts for the websitestats.html page.
      
-     -statistics.html-  
+-statistics.html-  
 The statistics.html file in linked to the json file that provides the data used for the table, pie and bar charts for the websitestats.html page.
     The code to retrieve the correct information for the table, pie and bar charts exists in this file.
 
-    -requirements.txt-
+-requirements.txt-
 contains the programs used to create the webiste.
 
-    -Procfile-
+-Procfile-
 used to link the app.py file to the requirements.txt file
 
 
@@ -60,11 +60,11 @@ On The website statistics pages I didnt know how to get the graphs and tables to
 
 ## Technologies Used
 
-1. Bootstrap	
-2. JQuery
-3. Python
-4. Json
-5. mlab
+1. 	Bootstrap ( https://getbootstrap.com/ ) 	Bootstrap was used to mobile-first design of the website.	
+2. JQuery (https://jquery.com/ ) 	JQuery is used to provide DOM manipulation.
+3. Python (https://www.python.org/ ) Python is used to automate precific tasks within the project.
+4. Json (https://www.json.org/) Json is used for transmitting data between the server and webb application.
+5. mlab within MongoDB (https://mlab.com/) mlab is used to host the recipes and associated elements for the cookbook.
 
 
 ## Code Testing
