@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>CookBook</title>
     <meta charset="UTF-8">
@@ -8,12 +9,12 @@
     <link rel="shortcut icon" href="#">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" >
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" >
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                 <div class="nav-wrapper red.lighten-3" id="navbarResponsive">
                     <a href="{{url_for('get_recipes')}}" class="brand-logo">Cookbook</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> {% if session['isLoggedin'] %}
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul id="nav-mobile-logged-in" class="right hide-on-med-and-down">
                         <li><a class="desktopnavfont" href="{{url_for('get_recipes')}}">Home</a></li>
                         <li><a class="desktopnavfont" href="{{url_for('recipesearch')}}">Recipe Search</a></li>
                         <li><a class="desktopnavfont" href="{{url_for('add_recipes')}}">New Recipe</a></li>
@@ -31,7 +32,7 @@
                         <li><a class="desktopnavfont" href="{{url_for('websitestats')}}" title="Website Statistics">Website Stats</a></li>
                         <li><a class="waves-effect waves-light btn" href="/logout" role="button" data-target=".bs-modal-sm">Sign out</a></li>
                     </ul>
-                    <ul class="side-nav" id="mobile-demo" >
+                    <ul class="side-nav" id="mobile-demo-logged-in">
                         <li><a class="waves-effect waves-light btn" href="/logout" role="button" title="logout" data-target=".bs-modal-sm">Sign Out</a></li>
                         <li><a href="{{url_for('get_recipes')}}">Home</a></li>
                         <li><a href="{{url_for('recipesearch')}}">Recipe Search</a></li>
@@ -40,13 +41,13 @@
                         <li><a class="desktopnavfont" href="{{url_for('websitestats')}}" title="Website Statistics">Website Stats</a></li>
                     </ul>
                     {% else %}
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul id="nav-mobile-logged-out" class="right hide-on-med-and-down">
                         <li><a class="desktopnavfont" href="{{url_for('get_recipes')}}">Home</a></li>
                         <li><a class="desktopnavfont" href="{{url_for('recipesearch')}}">Recipe Search</a></li>
                         <li><a class="waves-effect waves-light btn" title="Login" href="/index.html" role="button" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a></li>
 
                     </ul>
-                    <ul class="side-nav" id="mobile-demo"  
+                    <ul class="side-nav" id="mobile-demo-logged-out">
                         <li><a class="waves-effect waves-light btn" title="Login" href="/index.html" role="button" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a></li>
                         <li><a href="{{url_for('get_recipes')}}">Home</a></li>
                         <li><a href="{{url_for('recipesearch')}}">Recipe Search</a></li>
@@ -57,49 +58,44 @@
             </div>
         </nav>
     </header>
-
-
     <!-- USER NAME-->
     {% if session['isLoggedin'] and request.path != "/" %}
-    <div class="container-fluid" id="user_content">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
                 <section id="user-name-wrapper">
                     <div class="userwelcome welcomemessage" style="margin-bottom: -10px">
-                        <span> Welcome back {{ session['username'] }} </span>
+                        <h6><span> Welcome back {{ session['username'] }} </span></h6>
                     </div>
                 </section>
             </div>
         </div>
     </div>
     {% elif session['isLoggedin'] and request.path == "/" %}
-    <div class="container-fluid" id="user_content">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <section id="user-name-wrapper">
+                <section id="user-name-wrapper2">
                     <div class="userwelcome home-userwelcome">
-                        <span> Welcome back {{ session['username'] }} </span>
+                        <h6><span> Welcome back {{ session['username'] }} </span></h6>
                     </div>
                 </section>
             </div>
         </div>
     </div>
     {% else %}
-    <div class="container-fluid" id="user_content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
-                <section id="user-name-wrapper-notloggedin">
-                </section>
+            <div class="col-xs-12" id="user-name-wrapper-notloggedin">
             </div>
         </div>
     </div>
     {% endif %}
-
-    <div <div class="modaledit modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modaledit modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <br>
-                    <!-- An account can be Created or Sign into -->
+                <!-- An account can be Created or Sign into -->
                 <div class="bs-example bs-example-tabs">
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
@@ -112,7 +108,7 @@
                         <div class="tab-pane fade in" id="why">
                             <p>This information is required so we can receive access to the site and its content. This information will not be sold, traded, or given to anyone.</p>
                         </div>
-                        <div class="tab-pane fade active in" id="signin">
+                        <div class="tab-pane fade active in">
                             <form class="form-horizontal" method="POST" action="/login_user" name="loginForm" id="loginForm">
                                 <fieldset>
                                     <!-- Sign In Form -->
@@ -120,7 +116,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="loginUsername">Username:</label>
                                         <div class="controls">
-                                            <input required="" id="loginUsername" name="loginUsername" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium">
+                                            <input required="" id="loginUsername" name="loginUsername" type="text" class="form-control" placeholder="JoeSixpack">
                                         </div>
                                     </div>
 
@@ -128,7 +124,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="loginPassword">Password:</label>
                                         <div class="controls">
-                                            <input required="" id="loginPassword" name="loginPassword" class="form-control" type="password" placeholder="********" class="input-medium">
+                                            <input required="" id="loginPassword" name="loginPassword" class="form-control" type="password" placeholder="********">
                                         </div>
                                     </div>
                                     <!-- Wrong Login Message -->
@@ -153,7 +149,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="Email">Enter a Email Address:</label>
                                         <div class="controls">
-                                            <input id="Email" name="Email" class="form-control" type="email" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+                                            <input id="Email" name="Email" class="form-control" type="email" placeholder="JoeSixpack@sixpacksrus.com" required="">
                                         </div>
                                     </div>
 
@@ -161,28 +157,28 @@
                                     <div class="control-group">
                                         <label class="control-label" for="signupUsername">Enter a Username:</label>
                                         <div class="controls">
-                                            <input id="signupUsername" name="signupUsername" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            <input id="signupUsername" name="signupUsername" class="form-control" type="text" placeholder="JoeSixpack" required="">
                                         </div>
                                     </div>
                                     <!-- First Name input -->
                                     <div class="control-group">
                                         <label class="control-label" for="firstName">Enter your First Name:</label>
                                         <div class="controls">
-                                            <input id="firstName" name="firstName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            <input id="firstName" name="firstName" class="form-control" type="text" placeholder="JoeSixpack" required="">
                                         </div>
                                     </div>
                                     <!-- Last Name input -->
                                     <div class="control-group">
                                         <label class="control-label" for="lastName">Enter your Last Name :</label>
                                         <div class="controls">
-                                            <input id="lastName" name="lastName" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                            <input id="lastName" name="lastName" class="form-control" type="text" placeholder="JoeSixpack" required="">
                                         </div>
                                     </div>
                                     <!-- Password input-->
                                     <div class="control-group">
                                         <label class="control-label" for="signupPassword">Enter a Password:</label>
                                         <div class="controls">
-                                            <input id="signupPassword" name="signupPassword" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                            <input id="signupPassword" name="signupPassword" class="form-control" type="password" placeholder="********" required="">
                                             <em>1-8 Characters</em>
                                         </div>
                                     </div>
@@ -190,7 +186,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="confirmPassword">Re-Enter Password:</label>
                                         <div class="controls">
-                                            <input id="confirmPassword" class="form-control" name="confirmPassword" type="password" placeholder="********" class="input-large" required="">
+                                            <input id="confirmPassword" class="form-control" name="confirmPassword" type="password" placeholder="********" required="">
                                         </div>
                                     </div>
                                     <!-- Signup Message -->
@@ -210,9 +206,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <center>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -227,11 +221,11 @@
                     <!--     Sign In/Sign Up button -->
                     <div style="position:absolute; left:50%; margin-left:-75px; margin-right:-75px;">
                         {% if session['isLoggedin'] %}
-                        <ul id="nav-mobile">
+                        <ul id="nav-mobile-logged-in2">
                             <li style="margin-left: 25px;margin-right: 25px;"><a class="waves-effect waves-light btn" title="Login" href="/logout" role="button" data-target=".bs-modal-sm">Sign out</a></li>
                         </ul>
                         {% else %}
-                        <ul id="nav-mobile">
+                        <ul id="nav-mobile-logged-out2">
                             <li><a class="waves-effect waves-light btn" title="Login" href="/index.html" role="button" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a></li>
                         </ul>
                         {% endif %}
@@ -240,8 +234,7 @@
             </div>
         </div>
     </div>
-    </div>
-    <!--- The footer social media links are simply for display there not real --->
+    <!-- The footer social media links are simply for display there not real -->
     <footer class="footer footer-mobile">
         <div class="col-sm-12">
             <h3 class="uppercase general-sub" style="margin-top: 0px;">Social links</h3>
@@ -268,5 +261,4 @@
     <!-- cookbook custom script -->
     <script src="{{url_for('static', filename='js/cookbookcustom_script.js')}}"></script>
 </body>
-
-</html
+</html>
