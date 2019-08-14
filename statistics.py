@@ -8,7 +8,7 @@ import json
 from flask import Flask, jsonify, json
 from flask_pymongo import PyMongo
 import matplotlib.pyplot as plt
-
+import functools
 
 statistics = Flask(__name__)
 statistics.debug = False
@@ -64,6 +64,7 @@ def cuis_dataframe():
     recipesCuisDataFrame = pandas.DataFrame()
     recipesCuisDataFrame['cuisine'] = [recipe['cuisine']
                                                 for recipe in results]
+    print(recipesCuisDataFrame['cuisine'])                                                    
     recipe_by_cuisine = recipesCuisDataFrame['cuisine'].value_counts()
     return recipe_by_cuisine
 
@@ -73,6 +74,7 @@ def aller_dataframe():
     recipesAllerDataFrame = pandas.DataFrame()
     recipesAllerDataFrame['allergens'] = [recipe['allergens']
                                                 for recipe in results]
+    print(enumerate(functools.reduce(lambda x,y: x + y,  (recipesAllerDataFrame['allergens']), [])))                                           
     recipe_by_allergens = recipesAllerDataFrame['allergens'].value_counts()
     return recipe_by_allergens
     

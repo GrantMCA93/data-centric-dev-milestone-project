@@ -155,7 +155,7 @@ h2{
 
   /*----- Image height -----*/
   min-height: 500px; 
-    height: 80%; 
+  height: 80%; 
   /*----- Center and scale the image nicely -----*/
   background-position: center;
   background-repeat: no-repeat;
