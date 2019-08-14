@@ -44,19 +44,6 @@ h2{
     justify-content: center;
 }
 
-/* Navbar settings */
-
-/*.navbarfixed{*/
-/*    position: inherit;*/
-/*    z-index: 500;*/
-/*}*/
-
-/*.welcomemessage{*/
-/*    position: fixed;*/
-/*    z-index: 500;*/
-/*    top: 64px;*/
-/*}*/
-
 
 /*------ Navbar Link fonts ------*/
 
@@ -93,6 +80,23 @@ h2{
     margin-left: 15px;
     margin-right: 15px;
 }
+
+
+/*------ RECIPESEARCH page  remove dropdown menu second arrow  ------*/
+
+.select-wrapper span.caret {
+    color: initial;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 10px;
+    margin: auto 0;
+    font-size: 0px; 
+    line-height: 10px;
+}
+
+
 
 /*------ VIEWRECIPE page custom edit and recipe button  ------*/
 
@@ -145,9 +149,9 @@ h2{
   /*----- The image used -----*/
   background-image: url("/static/img/recipes/pizza-wallpaper.jpeg");
 
-  /*----- Full height -----*/
-  height: 80%; 
-
+  /*----- Image height -----*/
+  min-height: 500px; 
+    height: 80%; 
   /*----- Center and scale the image nicely -----*/
   background-position: center;
   background-repeat: no-repeat;
@@ -198,3 +202,5 @@ h2{
 .footer-icon-color{
  color: white;   
 }
+
+
