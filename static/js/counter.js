@@ -1,3 +1,4 @@
+// used to created the counts function on the addrecipe and edit recipe pages
 (function($) {
   'use strict';
 

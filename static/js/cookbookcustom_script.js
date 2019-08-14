@@ -1,4 +1,4 @@
-// #region AJAX send the SIGNUP data to Flask/Python
+// #region AJAX is used to send the SIGNUP data to Flask/Python
   $('#signupForm').submit(function (event) {
     event.preventDefault();
     // ensure passwords match
@@ -27,9 +27,9 @@
       $('#signupMessages').html('Passwords do not match').css('color', 'red');
   });
 
+  // #endregion
 
-
-  // #region AJAX RATE THIS RECIPE
+  // #region AJAX IS USED TO RATE THIS RECIPE
 
 
   $('#rateme').click(function (e) {
@@ -61,7 +61,7 @@
   }
   // #endregion
 
-// #region AJAX Login data message send to Python/Flask
+// #region AJAX used to display Login data message send to Python/Flask
 
 
  $('#loginForm').submit(function(e){
@@ -87,7 +87,7 @@
             }
         },
         error: function (error) {
-          $("#wrongusernameorpassword").html("Please try again. There was an error logging in. ");
+          $("#wrongusernameorpassword").html("There was an error logging in. Please try again.");
       }
     });
   });
@@ -95,7 +95,7 @@
   
   // #endregion
 
-  // #region GET CATEGORY FROM SEARCH FILTER AND PASS TO FLASK
+  // #region USED TO GET CATEGORY FROM SEARCH FILTER AND PASS TO FLASK
 
 
     $("#category-select").change(function (event) {
@@ -109,13 +109,13 @@
         type: 'POST',
         success: function (response) {
           $("#searchResult").show();
-          $("h3.section-subheading").html("Recipes searched by Category: " + categorypicked);
+          $("h3.section-subheading").html("Searched recipes by Category: " + categorypicked);
           $('#category-select').val("Select a Category");
           if (response != "fail") {
             $("#recipeResult").html(response);
           }
           else {
-            $("#recipeResult").html("There were no recipes with the Category <span class='search-param'>" + categorypicked + "</span>. <br>Try searching again." );
+            $("#recipeResult").html("There are no recipes with the Category <span class='search-param'>" + categorypicked + "</span>. <br>Try searching again." );
           }         
           //scroll window to results
           $('html, body').animate({
@@ -123,7 +123,7 @@
           }, 'slow');          
         },
         error: function (error) {
-          $("#recipeResult").html("There was an error searching recipes. Please try again.");
+          $("#recipeResult").html("recipe search produced an error. Please try again.");
         }
       });
     });
@@ -131,7 +131,7 @@
 
   // #endregion
   
-  // #region GET CUISINE FROM SEARCH FILTER AND PASS TO FLASK
+  // #region USED TO GET CUISINE FROM SEARCH FILTER AND PASS TO FLASK
 
     $("#cuisine-select").change(function (event) {
       event.preventDefault();
@@ -143,13 +143,13 @@
         data: JSON.stringify(cuisine),
         type: 'POST',
         success: function (response) {
-          $("h3.section-subheading").html("Recipes searched by Cuisine: " + cuisinepicked);
+          $("h3.section-subheading").html("Searched recipes by Cuisine: " + cuisinepicked);
           $('#cuisine-select').val("Select a Cuisine");
           if (response != "fail") {
             $("#recipeResult").html(response);
           }
           else {
-            $("#recipeResult").html("There were no recipes with the Cuisine <span class='search-param'>" + cuisinepicked + "</span>. <br>Try searching again." );
+            $("#recipeResult").html("There are no recipes with the Cuisine <span class='search-param'>" + cuisinepicked + "</span>. <br>Try searching again." );
           }         
           //scroll window to results
           $('html, body').animate({
@@ -157,7 +157,7 @@
           }, 'slow');          
         },
         error: function (error) {
-          $("#recipeResult").html("There was an error searching recipes. Please try again.");
+          $("#recipeResult").html("recipe search produced an error. Please try again.");
         }
       });
     });
@@ -165,7 +165,7 @@
   // #endregion
   
   
-  // #region GET ALLERGENS FROM SEARCH FILTER AND PASS TO FLASK
+  // #region USED TO GET ALLERGENS FROM SEARCH FILTER AND PASS TO FLASK
 
     $("#allergens-select").change(function (event) {
       event.preventDefault();
@@ -178,13 +178,13 @@
         type: 'POST',
         success: function (response) {
           $("#searchResult").show();
-          $("h3.section-subheading").html("Recipes searched by Allergens: " + allergenspicked);
+          $("h3.section-subheading").html("Searched recipes by Allergens: " + allergenspicked);
           $('#allergens-select').val("Select Allergens");
           if (response != "fail") {
             $("#recipeResult").html(response);
           }
           else {
-            $("#recipeResult").html("There were no recipes with the Allergens <span class='search-param'>" + allergenspicked + "</span>. <br>Try searching again." );
+            $("#recipeResult").html("There are no recipes with the Allergens <span class='search-param'>" + allergenspicked + "</span>. <br>Try searching again." );
           }         
           //scroll window to results
           $('html, body').animate({
@@ -192,7 +192,7 @@
           }, 'slow');          
         },
         error: function (error) {
-          $("#recipeResult").html("There was an error searching recipes. Please try again.");
+          $("#recipeResult").html("recipe search produced an error. Please try again.");
         }
       });
     });
