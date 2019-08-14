@@ -14,7 +14,17 @@ h2{
     
 }
 
-/*------ Button Parameters ------*/
+/*------ Custom Button Parameters ------*/
+
+.btn{
+        padding: 6px 12px !important;
+    padding-top: 6px !important;
+    padding-right: 12px !important;
+    padding-bottom: 6px !important;
+    padding-left: 12px !important;
+}
+
+
 
 .btn_small{
     height: 24px;
