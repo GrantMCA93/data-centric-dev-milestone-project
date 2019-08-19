@@ -88,7 +88,7 @@ mlab
 
 ## Credits 
 app.py
-#Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 to help me with my app.py code
+Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 as a template to help me with the coding 
 The login form used for website used the basic template from https://bootsnipp.com/snippets/8y25
 
 
@@ -113,8 +113,9 @@ json files path location /static/js
 2. "counter.js" This file is used to create a character limit when creating and editing recipes. 
 
 ## Acknowledgements 
-
 Mentor:- Chris Zielinski  ckz8780@gmail.com 
+Used https://github.com/Sonnerz/project04-data-centric-cookbook/blob/master/app.py#L426 as a template to help me with the coding 
+
 
 
 
