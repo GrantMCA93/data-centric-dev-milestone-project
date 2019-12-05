@@ -13,7 +13,7 @@ configobj==5.0.6
 constantly==15.1.0
 cryptography==2.7
 cycler==0.10.0
-Django==2.2.4
+Django==2.2.8
 docutils==0.14
 Flask==1.1.1
 Flask-PyMongo==2.3.0
